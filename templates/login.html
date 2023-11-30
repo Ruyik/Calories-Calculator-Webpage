@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Login</title>
+    <style>
+    body { background-image: url('https://www.i1.creditdonkey.com/image/1/food-month-cost.jpg');
+           background-attachment: fixed;
+           background-size: 100% 100%;}
+    h1 { text-align: center; font-size: 50px;}
+    form { text-align: center; font-size: 25px; color: black;}
+    input{ font-size: 20px;}
+    </style>
+</head>
+<body>
+{% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                {% if 'error' in message %}
+                    <p style="color: red;">{{ message }}</p>
+                {% elif 'success' in message %}
+                    <p style="color: green;">{{ message }}</p>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    {% if success %}
+        <p style="color: green;">{{ success }}</p>
+    {% endif %}
+
+<h1>User Login</h1><br><br>
+    <form action="/login" method="post">
+        <label for="username"><strong>Enter Username to log in:</strong></label><br>
+        <input type="text" id="username" name="username" required><br><br>
+        <label for="password"><strong>Enter Password to login (min 8 characters):</strong></label><br>
+        <input type="password" id="password" name="password" minlength="8" required><br><br>
+        <input type="submit" value="Login">
+    </form><br>
+    <form action="/forgot_password" method="post">
+        <input type="submit" value="Forgot Password?">
+    </form>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+  function buttonClicked(buttonId) {
+  // Perform frontend logic if needed
+  // ...
+
+  // Make a request to the backend with the buttonId
+  fetch('/matchFood', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ foodType: 'chinese', foodName: buttonId }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Handle the backend response if needed
+    // ...
+
+    // Redirect to the next page or perform other actions based on the response
+  })
+      window.location.href = 'chinese.html';  // Redirect to chinese.html for now
+    })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
+  </script>
+  <style>
+  body { background-color:CadetBlue;
+           background-attachment: fixed;
+           background-size: 100% 100%;}
+           form {font-size:150%; color:white; text-align: center;}
+           h2 { font-family: Time New Roman; font-size: 300%; color:Peru; text-align: center;}
+           p { font-size: 100%; color:white;}
+
+  body{ display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;}
+
+   .image-button { background-color: transparent;
+                   border: none;
+                   cursor: pointer;
+                   margin: 8px;
+                   padding: 0;}
+
+   .image-button img { width: 180px;
+                       height: 100px;
+                       border-radius: 5px;}
+
+   .image-button span { display: block;
+                        margin-top: 5px;}
+
+   .button-container { display: flex;
+                       flex-wrap: wrap;
+                       justify-content: center;}
+
+/* Optional: Add hover effect */
+   .image-button:hover { opacity: 0.8;}
+  </style>
+</head>
+<body>
+<h2>Capybara Calories Calculator</h2>
+<p>Dear user, please choose the food that you want to calculate!</p>
+
+<div class="button-container">
+<form id="foodForm" action="/matchFood" method="post">
+  <button class="image-button" onclick="submitForm('chinese', 'chicken rice')">
+    <img src="https://assets.tmecosys.cn/image/upload/t_web767x639/img/recipe/ras/Assets/4078096D-53C7-44B1-9752-13153B9C751A/Derivates/9194B561-F52D-4D83-913F-0ADAD8ED8EB5.jpg" alt="chicken rice">
+  <span style= "color:white; font-family: Time New Roman;" >Chicken rice</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('chinese', 'yongtaufoo')">
+    <img src="https://resepichenom.com/media/Yong_Tau_Foo_IG.jpg" alt="yongtaofoo">
+  <span style= "color:white; font-family: Time New Roman;">Yong Tao Foo</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('chinese', 'fried rice')">
+    <img src="https://images.ctfassets.net/pl05rcmbdryr/58wpcwOn5liOVlcZiRQJxU/ce4050411e98d0d4384e0ef8d9208b74/e83d55479270da03a4db8293b9d1b730.jpg?w=828&q=75&fm=webp" alt="fried rice">
+  <span style= "color:white; font-family: Time New Roman;">Fried Rice</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('chinese', 'charkwayteow')">
+    <img src="https://christieathome.com/wp-content/uploads/2020/12/Char-Kway-Teow-1-2048x2048.jpg" alt="charkwayteow">
+  <span style= "color:white; font-family: Time New Roman;">Char Kway Teow</span>
+  </button>
+
+   <button class="image-button" onclick="submitForm('chinese', 'bakkutteh')">
+    <img src="https://rasamalaysia.com/wp-content/uploads/uploaded_images/bak-kut-teh/bkt.jpg" alt="bakkutteh">
+    <span style= "color:white; font-family: Time New Roman;">Bak Kut Teh</span>
+   </button>
+
+  <button class="image-button" onclick="submitForm('chinese', 'hotpot')'">
+    <img src="https://qph.cf2.quoracdn.net/main-qimg-466349859f0caa9b287e4f696f1dac86-lq" alt="hotpot">
+    <span style= "color:white; font-family: Time New Roman;">Hot Pot</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('chinese', 'Dim Sum')">
+    <img src="https://www.dimsumcentral.com/wp-content/uploads/2018/06/what-is-dim-sum-header-new.jpg" alt="dimsum">
+  <span style= "color:white; font-family: Time New Roman;">Dim Sum</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('chinese', 'Pork Noodle')">
+    <img src="https://funntaste.com/wp-content/uploads/2020/10/ah-or-mentari-pork-noodle-1.jpg" alt="porknoodle">
+  <span style= "color:white; font-family: Time New Roman;">Pork Noodle</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('chinese', 'Cuury Mee')">
+    <img src="https://woonheng.com/wp-content/uploads/2020/10/Curry-Laksa-768x1024.jpg" alt="currymee">
+  <span style= "color:white; font-family: Time New Roman;">Curry Mee</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('chinese', 'Pan Mee')">
+    <img src="https://cdn.kuali.com/wp-content/uploads/2021/06/30232115/840x560-Soup-Pan-Mee1-830x553.jpg" alt="panmeee">
+  <span style= "color:white; font-family: Time New Roman;">Pan Mee</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('chinese', 'Wooton Noodle')">
+    <img src="https://foodhub.scene7.com/is/image/woolworthsltdprod/2105-best-wonton-noodle-soup:Desktop-1300x658" alt="wootonnoodle">
+  <span style= "color:white; font-family: Time New Roman;">Wooton Noodle</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('chinese', 'HokkienMee')">
+    <img src="https://www.newmalaysiankitchen.com/wp-content/uploads/2017/06/Hokkien-Mee2.jpg" alt="hokkienmee">
+  <span style= "color:white; font-family: Time New Roman;">Hokkien Mee</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('chinese', 'Fish Head Noodle Soup')">
+    <img src="https://www.ajinomotofoodbizpartner.com.my/wp-content/uploads/2023/09/Fish-Head-Noodlesthumbnail-03.jpg" alt="fishheadnoodlesoup">
+  <span style= "color:white; font-family: Time New Roman;">Fish Head Noodle Soup</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('chinese', 'Loh Mee')">
+    <img src="https://scontent-kul2-2.xx.fbcdn.net/v/t31.18172-8/13731929_700357153437056_2114359964269531971_o.jpg?_nc_cat=100&ccb=1-7&_nc_sid=c2f564&_nc_ohc=uFQA74GkYN4AX85G8r4&_nc_ht=scontent-kul2-2.xx&oh=00_AfAwZrpbvVHJamqEAMU7jF2Rk9r6f7mvoIAyapey3mgSXQ&oe=658B889F" alt="lohmee">
+  <span style= "color:white; font-family: Time New Roman;">Loh Mee</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('chinese', 'Laksa')">
+    <img src="https://images.deliveryhero.io/image/foodpanda/recipes/asam-laksa-recipe-1.jpg" alt="laksa">
+  <span style= "color:white; font-family: Time New Roman;">Laksa</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('chinese', 'Prawn Noodle')">
+    <img src="https://ucarecdn.com/76e1905f-bfd4-47a0-9715-57a8db77b748/-/scale_crop/1600x900/center/-/quality/normal/-/format/webp/penang-hokkien-mee-prawn-noodles.webp" alt="prawnnoodle">
+  <span style= "color:white; font-family: Time New Roman;">Prawn Noodle</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('chinese', 'Hakka Noodle')">
+    <img src="https://thewhiskaddict.com/wp-content/uploads/2020/02/IMG_2848-2.jpg" alt="hakkanoodle">
+  <span style= "color:white; font-family: Time New Roman;">Hakka Noodle</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('chinese', 'Claypot Lou Shu Fun')">
+    <img src="https://blogger.googleusercontent.com/img/a/AVvXsEgrBc7Y2yG6naOco1UrdT8OgxuB2fEX7USI8G2reT9yr05KdUKStFO8TxfIsiGUkuoPDQ3j409n_t8LIJSptSx-rk0SPumu041JvRFozhR5exMWFb9oj6gf3LRG7M2o42dJubjeMqron17NUBgO9ZYfyQP1Wx0ONNaIT00hAp4wIQhKZi8OpVjrLTMtHg=s4593" alt="claypotloushufun">
+  <span style= "color:white; font-family: Time New Roman;">Claypot Lou Shu Fun</span>
+  </button>
+
+  <input type="hidden" id="foodType" name="foodType" value="">
+    <input type="hidden" id="foodName" name="foodName" value="">
+</form>
+
+<script>
+    function submitForm(foodType, foodName) {
+      document.getElementById('foodType').value = foodType;
+      document.getElementById('foodName').value = foodName;
+      document.getElementById('foodForm').submit();
+    }
+  </script>
+
+</div>
+</body>
+</html>

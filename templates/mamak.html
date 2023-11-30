@@ -1,0 +1,155 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+  function buttonClicked(buttonId) {
+  // Perform frontend logic if needed
+  // ...
+
+  // Make a request to the backend with the buttonId
+  fetch('/matchFood', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+     body: JSON.stringify({ foodType: 'mamak', foodName: buttonId }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Handle the backend response if needed
+    // ...
+
+    // Redirect to the next page or perform other actions based on the response
+  })
+    window.location.href = 'mamak.html';  // Redirect to mamak.html for now
+    })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
+  </script>
+  <style>
+  body { background-color:CadetBlue;
+           background-attachment: fixed;
+           background-size: 100% 100%;}
+           form {font-size:150%; color:white; text-align: center;}
+           h2 { font-family: Time New Roman; font-size: 300%; color:Peru; text-align: center;}
+           p { font-size: 100%; color:white;}
+
+  body{ display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;}
+
+   .button-container { display: flex;
+                       flex-wrap: wrap;
+                       justify-content: center;}
+
+   .image-button { background-color: transparent;
+                   border: none;
+                   cursor: pointer;
+                   margin: 8px;
+                   padding: 0;}
+
+   .image-button img { width: 180px;
+                       height: 100px;
+                       border-radius: 5px;}
+
+   .image-button span { display: block;
+                        margin-top: 5px;}
+
+/* Optional: Add hover effect */
+   .image-button:hover { opacity: 0.8;}
+  </style>
+</head>
+<body>
+<h2>Capybara Calories Calculator</h2>
+<p>Dear user, please choose the food that you want to calculate!</p>
+
+<div class="button-container">
+<form id="foodForm" action="/matchFood" method="post">
+    <button class="image-button" onclick="submitForm('mamak', 'Roti Canai')">
+    <img src="https://www.azhariahkamin.com/wp-content/uploads/2015/11/roti1.jpg" alt="roticanai">
+  <span style= "color:white; font-family: Time New Roman;" >Roti Canai</span>
+    </button>
+
+  <button class="image-button" onclick="submitForm('mamak', 'Cheese Naan')">
+    <img src="https://www.cookwithkushi.com/wp-content/uploads/2016/08/IMG_2320_-1.jpg" alt="cheesenaan">
+  <span style= "color:white; font-family: Time New Roman;">Cheese Naan</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('mamak', 'Roti Tisu')">
+    <img src="https://www.tasteatlas.com/images/dishes/1414b9c07a7d45f293798254e59f2b5b.jpg?mw=1300" alt="rotitisu">
+  <span style= "color:white; font-family: Time New Roman;">Roti Tisu</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('mamak', 'Murtabk')">
+    <img src="https://bazaar.qniti.com/wp-content/uploads/2020/07/images-1.jpg" alt="murtabak">
+  <span style= "color:white; font-family: Time New Roman;">Murtabak</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('mamak', 'Roti Telur')">
+    <img src="https://2.bp.blogspot.com/-mu2GM02WSc4/V67CWs4rO5I/AAAAAAAAQIg/e9n1VtvBJl41WZtYshsF4JAjaRvBhhryACLcB/s1600/SSWF-RotiTelur.jpg" alt="rotitelur">
+    <span style= "color:white; font-family: Time New Roman;">Roti Telur</span>
+  </button>
+
+ <button class="image-button" onclick="submitForm('mamak', 'Maggie Goreng')">
+    <img src="https://www.newmalaysiankitchen.com/wp-content/uploads/2017/05/Easy-Maggi-Goreng-5-Ingredients.jpg" alt="maggiegoreng">
+    <span style= "color:white; font-family: Time New Roman;">Maggie Goreng</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('mamak', 'Mee Rojak')">
+    <img src="https://thumbs.dreamstime.com/z/mee-rojak-malaysia-indian-food-noodle-peanut-sauce-one-very-famous-asia-207700220.jpg?w=992" alt="meerojak">
+    <span style= "color:white; font-family: Time New Roman;">Mee Rojak</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('mamak', 'Teh Tarik')">
+    <img src="https://parenthood.my/wp-content/uploads/2021/09/111165809_l.jpg" alt="tehtarik">
+    <span style= "color:white; font-family: Time New Roman;">Teh Tarik</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('mamak', 'Teh O Limau')">
+    <img src="https://malayculturebyukail.files.wordpress.com/2016/08/p4231357.jpg" alt="teholimau">
+    <span style= "color:white; font-family: Time New Roman;">Teh O Limau</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('mamak', 'Milo Dinosaur')">
+    <img src="https://www.foodadvisor.my/attachments/1bb65f748307c8626c7e3c78ea52dd7516257fc3/store/fill/800/500/be7f4185f7390cb670f9be6a348ad242d6e8ca1319acc32c03afac7f641f/featured_image.jpg" alt="milodinasaur">
+    <span style= "color:white; font-family: Time New Roman;">Milo Dinosaur</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('mamak', 'Sirap')">
+    <img src="https://latitudes.nu/wp-content/uploads/2011/10/sirap-rose.jpg" alt="sirap">
+    <span style= "color:white; font-family: Time New Roman;">Sirap</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('mamak', 'Milo Biasa')">
+    <img src="https://cfcdn2.azsg.opensnap.com/azsg/snapphoto/photo/LA/GTE1/3BKZRW1609E8221F6C6024lv.jpg" alt="milobiasa">
+    <span style= "color:white; font-family: Time New Roman;">Milo Biasa</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('mamak', 'Kopi O')">
+    <img src="https://i1.wp.com/www.live-less-ordinary.com/wp-content/uploads/2012/06/Coffee-O-for-Breakfast-Eating-Malaysian-Food-610x439.jpg?strip=info&w=1000&ssl=1" alt="kopio">
+    <span style= "color:white; font-family: Time New Roman;">Kopi O</span>
+  </button>
+
+<input type="hidden" id="foodType" name="foodType" value="">
+    <input type="hidden" id="foodName" name="foodName" value="">
+</form>
+
+ <script>
+    function submitForm(foodType, foodName) {
+      document.getElementById('foodType').value = foodType;
+      document.getElementById('foodName').value = foodName;
+      document.getElementById('foodForm').submit();
+    }
+  </script>
+
+</div>
+
+</body>
+</html>

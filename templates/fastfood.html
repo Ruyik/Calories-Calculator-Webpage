@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+  function buttonClicked(buttonId) {
+  // Perform frontend logic if needed
+  // ...
+
+  // Make a request to the backend with the buttonId
+  fetch('/matchFood', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ foodType: 'fastfood', foodName: buttonId }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Handle the backend response if needed
+    // ...
+
+    // Redirect to the next page or perform other actions based on the response
+  })
+
+    window.location.href = 'fastfood.html';  // Redirect to fastfood.html for now
+    })
+
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
+  </script>
+  <style>
+  body { background-color:CadetBlue;
+           background-attachment: fixed;
+           background-size: 100% 100%;}
+           form {font-size:150%; color:white; text-align: center;}
+           h2 { font-family: Time New Roman; font-size: 300%; color:Peru; text-align: center;}
+           p { font-size: 100%; color:white;}
+
+  body{ display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;}
+
+   .image-button { background-color: transparent;
+                   border: none;
+                   cursor: pointer;
+                   margin: 8px;
+                   padding: 0;}
+
+   .image-button img { width: 180px;
+                       height: 100px;
+                       border-radius: 5px;}
+
+   .image-button span { display: block;
+                        margin-top: 5px;}
+
+   .button-container { display: flex;
+                       flex-wrap: wrap;
+                       justify-content: center;}
+
+/* Optional: Add hover effect */
+   .image-button:hover { opacity: 0.8;}
+  </style>
+</head>
+<body>
+<h2>Capybara Calories Calculator</h2>
+<p>Dear user, please choose the food that you want to calculate!</p>
+
+<form id="foodForm" action="/matchFood" method="post">
+  <button class="image-button" onclick="submitForm('fastfood', 'burger')">
+    <img src="https://www.ajinomoto.com.my/sites/default/files/content/recipe/image/2022-09/Malaysian-Classic-Street-Burger-new.jpg" alt="buregr">
+  <span style= "color:white; font-family: Time New Roman;" >Burger</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('fastfood', 'frenchfries')">
+    <img src="https://images.themodernproper.com/billowy-turkey/production/posts/2022/Homemade-French-Fries_8.jpg?w=800&q=82&fm=jpg&fit=crop&dm=1662474181&s=76f4dc7a5af1958d255ce8559579a6f2" alt="frenchfries">
+  <span style= "color:white; font-family: Time New Roman;">French Fries</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('fastfood', 'pizza')">
+    <img src="https://www.foodandwine.com/thmb/4qg95tjf0mgdHqez5OLLYc0PNT4=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/classic-cheese-pizza-FT-RECIPE0422-31a2c938fc2546c9a07b7011658cfd05.jpg" alt="pizza">
+  <span style= "color:white; font-family: Time New Roman;">Pizza</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('fastfood', 'chicken nugget')">
+    <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2013/9/12/1/FN_Picky-Eaters-Chicken-Nuggets_s4x3.jpg.rend.hgtvcom.826.620.suffix/1383770571120.jpeg" alt="chickennugget">
+  <span style= "color:white; font-family: Time New Roman;">Chicken Nugget</span>
+  </button>
+
+   <button class="image-button" onclick="submitForm('fastfood', 'fried chicken')">
+    <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2012/11/2/0/DV1510H_fried-chicken-recipe-10_s4x3.jpg.rend.hgtvcom.826.620.suffix/1568222255998.jpeg" alt="friedchicken">
+    <span style= "color:white; font-family: Time New Roman;">Fried Chicken</span>
+   </button>
+
+  <button class="image-button" onclick="submitForm('fastfood', 'burrito')">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/60/Burrito.JPG" alt="burrito">
+    <span style= "color:white; font-family: Time New Roman;">Burrito</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('fastfood', 'salad')">
+    <img src="https://www.acouplecooks.com/wp-content/uploads/2019/05/Chopped-Salad-001_1.jpg" alt="salad">
+  <span style= "color:white; font-family: Time New Roman;">Salad</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('fastfood', 'Fish&Chips')">
+    <img src="https://nicelandseafood.com/wp-content/uploads/2020/04/classic-fish-and-chips-with-haddock.jpg" alt="fish&chips">
+  <span style= "color:white; font-family: Time New Roman;">Fish&Chips</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('fastfood', 'Spaghetti')">
+    <img src="https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2021/06/THUMB-LINK-2020-2-1200x675.jpg" alt="spaghetti">
+  <span style= "color:white; font-family: Time New Roman;">Spaghetti</span>
+  </button>
+
+  <input type="hidden" id="foodType" name="foodType" value="">
+    <input type="hidden" id="foodName" name="foodName" value="">
+</form>
+
+ <script>
+    function submitForm(foodType, foodName) {
+      document.getElementById('foodType').value = foodType;
+      document.getElementById('foodName').value = foodName;
+      document.getElementById('foodForm').submit();
+    }
+  </script>
+
+</div>
+</body>
+</html>

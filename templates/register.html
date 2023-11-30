@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        body {
+            background-image: url('https://www.blackhealthapp.com/wp-content/uploads/2023/07/Shutterstock_1951918510-1024x576.jpg');
+            /* Add other styles as needed */
+            background-attachment: fixed;
+            background-size: 100% 100%;}
+              form { font-size:150%; color:Black; text-align: center;}
+              h1 { font-family: Times New Roman; font-size: 300%; color:DarkGreen; text-align: center;}
+              p { font-size: 100%; color:Black;}
+
+        }
+    </style>
+
+    <script>
+        function validateRegistrationForm() {
+            // Get the values of the input fields
+            const username = document.getElementById('username').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            // Check if any required field is empty
+            if (username.trim() === '' || email.trim() === '' || password.trim() === '') {
+                alert('Please fill in all required fields.');
+                return false; // Prevent form submission
+            }
+
+            // Continue with form submission if validation passes
+            return true;
+        }
+    </script>
+</head>
+<body>
+<h1>WELCOME TO CAPYBARA CALORIES CALCULATOR WEBSITE</h1>
+<h2>SIGN IN FOR NEW USER...</h2>
+    <form method="post" action="/register">
+        <label for="username">Username:</label><br>
+        <input type="text" id="username" name="username" required><br>
+
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" required><br>
+
+        <label for="password">Password (min 8 characters):</label><br>
+        <input type="password" id="password" name="password" required><br>
+
+        <button type="submit">Submit</button>
+        <input type="reset" value="Reset">
+    </form>
+
+
+    <!-- Include Bootstrap JS and other scripts if needed -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

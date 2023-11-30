@@ -1,0 +1,220 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+  function buttonClicked(buttonId) {
+  // Perform frontend logic if needed
+  // ...
+
+  // Make a request to the backend with the buttonId
+  fetch('/matchFood', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+     body: JSON.stringify({ foodType: 'dessert', foodName: buttonId }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Handle the backend response if needed
+    // ...
+
+    // Redirect to the next page or perform other actions based on the response
+  })
+    window.location.href = 'dessert.html';  // Redirect to malay.html for now
+    })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
+  </script>
+  <style>
+  body { background-color:CadetBlue;
+           background-attachment: fixed;
+           background-size: 100% 100%;}
+           form {font-size:150%; color:white; text-align: center;}
+           h2 { font-family: Time New Roman; font-size: 300%; color:Peru; text-align: center;}
+           p { font-size: 100%; color:white;}
+
+  body{ display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;}
+
+   .button-container { display: flex;
+                       flex-wrap: wrap;
+                       justify-content: center;}
+
+   .image-button { background-color: transparent;
+                   border: none;
+                   cursor: pointer;
+                   margin: 8px;
+                   padding: 0;}
+
+   .image-button img { width: 180px;
+                       height: 100px;
+                       border-radius: 5px;}
+
+   .image-button span { display: block;
+                        margin-top: 5px;}
+
+/* Optional: Add hover effect */
+   .image-button:hover { opacity: 0.8;}
+  </style>
+</head>
+<body>
+<h2>Capybara Calories Calculator</h2>
+<p>Dear user, please choose the food that you want to calculate!</p>
+
+<div class="button-container">
+<form id="foodForm" action="/matchFood" method="post">
+    <button class="image-button" onclick="submitForm('dessert', 'Vanilla drumstick (Nestle)')">
+    <img src="https://www.toysrus.com.my/dw/image/v2/BDGJ_PRD/on/demandware.static/-/Sites-master-catalog-toysrus/default/dw3e780457/6/e/4/d/6e4d83a4152b7fa6699f5301fccb97e8dd93360c_243620_i1.jpg?sw=500&sh=500&q=75" alt="Vanilla drumstick (Nestle)">
+  <span style= "color:white; font-family: Time New Roman;" >Vanilla drumstick (Nestle)</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Chocolate drumstick (Nestle)')">
+    <img src="https://www.toysrus.com.my/dw/image/v2/BDGJ_PRD/on/demandware.static/-/Sites-master-catalog-toysrus/default/dwfc996b50/3/c/2/5/3c25f3cae314d075796387a47841c49e6f70316e_243612_i1.jpg?sw=500&sh=500&q=75" alt="Chocolate drumstick (Nestle)">
+  <span style= "color:white; font-family: Time New Roman;" >Chocolate drumstick (Nestle)</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Caffe de Caramel drumstick (Nestle)')">
+    <img src="https://2.bp.blogspot.com/-tENL6vwu0XY/VxBnkAE7GqI/AAAAAAAAqLw/cPZo2CUKvh0ITB71_zDTSrptd82OE_HXACKgB/s1600/nestle-drumstick-caffe-de-caramel-all-new-coffee-icecream-flavour-8.jpg" alt="Caffe de Caramel drumstick (Nestle)">
+  <span style= "color:white; font-family: Time New Roman;" >Caffe de Caramel drumstick (Nestle)</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'tropicana lime vanilla (Nestle)')">
+    <img src="https://www.zuppa.com.my/zuppamarket/wp-content/uploads/Nestle-Tropicana-Lime-Vanilla-Multipack-8s-x-70ml-Carton-of-12-Boxes.jpg" alt="tropicana lime vanilla (Nestle)">
+  <span style= "color:white; font-family: Time New Roman;" >Tropicana Lime Vanilla (Nestle)</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Nestle Milo ice cream')">
+    <img src="https://klec.jayagrocer.com/cdn/shop/products/071298-1-1_700x.jpg?v=1657642838" alt="Nestle Milo ice cream">
+  <span style= "color:white; font-family: Time New Roman;" >Nestle Milo ice cream</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Nestle Kit Kat ice cream')">
+    <img src="https://gdimg.gmarket.co.kr/2427981679/still/400?ver=1685505796" alt="Nestle Kit Kat ice cream">
+  <span style= "color:white; font-family: Time New Roman;" >Nestle Kit Kat ice cream</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Nestle Crunch')">
+    <img src="https://i.ebayimg.com/images/g/~60AAOSwTtNjbSkB/s-l1600.jpg" alt="Nestle Crunch">
+  <span style= "color:white; font-family: Time New Roman;" >Nestle Crunch</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Nestle Kit Kat Pink ice cream')">
+    <img src="https://mvo.com.sg/image/catalog/blog/NKKP_set_3_01.jpg" alt="Nestle Kit Kat Pink ice cream">
+  <span style= "color:white; font-family: Time New Roman;" >Nestle Kit Kat Pink ice cream</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Nestle Musang King ice cream')">
+    <img src="https://scontent-kul3-1.xx.fbcdn.net/v/t39.30808-6/271661008_1575514056166393_8250572879347790100_n.jpg?stp=dst-jpg_p960x960&_nc_cat=110&ccb=1-7&_nc_sid=5f2048&_nc_ohc=sa2516SHfgwAX9jvGg8&_nc_ht=scontent-kul3-1.xx&oh=00_AfB7LXysU34Zvy2I5c0KpAQw7GsjdGv8QtaB2x9_-N39tg&oe=656A5225" alt="Nestle Musang King ice cream">
+  <span style= "color:white; font-family: Time New Roman;" >Nestle Musang King ice cream</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Apple Cake')">
+    <img src="https://www.foodandwine.com/thmb/kXZwy8I8tPlHnAtTRpoJx7NICXk=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/FAW-recipes-apple-upside-down-cake-hero-02-48794bb41da54d87ae1ea60a188a175e.jpg" alt="Apple Cake">
+  <span style= "color:white; font-family: Time New Roman;" >Apple Cake</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Black Forest Cake')">
+    <img src="https://static01.nyt.com/images/2020/01/15/dining/ss-black-forest-cake/merlin_165684495_6689b1a0-42b5-4228-b871-37bb983d797e-master768.jpg?w=1280&q=75" alt="Black Forest Cake">
+  <span style= "color:white; font-family: Time New Roman;" >Black Forest Cake</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Blueberry Muffin')">
+    <img src="https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/2022-12/KABC_Quick-Breads_Blueberry-Muffin_08304.jpg?itok=EM7XxPfL" alt="Blueberry Muffin">
+  <span style= "color:white; font-family: Time New Roman;" >Blueberry Muffin</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Brownie')">
+    <img src="https://joyfoodsunshine.com/wp-content/uploads/2019/06/fudgy-homemade-brownies-recipe-from-scratch-7.jpg" alt="Brownie">
+  <span style= "color:white; font-family: Time New Roman;" >Brownie</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Caramel Cake')">
+    <img src="https://www.thespruceeats.com/thmb/wDHX1Fl0MdwkyTAtldMA1kaCab8=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/southern-caramel-cake-recipe-5223056-hero-01-3ab3da8edf974a90875a3bc5cb0c0af4.jpg" alt="Caramel Cake">
+  <span style= "color:white; font-family: Time New Roman;" >Caramel Cake</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Cheesecake')">
+    <img src="https://www.marthastewart.com/thmb/jUQwEXuFfwA9v49YKXeFaz8_Njk=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/MSL-865202-new-york-cheesecake-hero-horiz-0723-84e3c796119d408581d1ef4d02d801cd.jpg" alt="Cheesecake">
+  <span style= "color:white; font-family: Time New Roman;" >Cheesecake</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Chocolate Cake')">
+    <img src="https://www.recipetineats.com/wp-content/uploads/2018/03/Chocolate-Cake_2.jpg?resize=900,1260" alt="Chocolate Cake">
+  <span style= "color:white; font-family: Time New Roman;" >Chocolate Cake</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Chocolate Muffin')">
+    <img src="https://www.allrecipes.com/thmb/E2tw3IZTWOnej6AzgPLGUKZUocE=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/228553-moist-chocolate-muffins-DDMFS-4x3-a9f73a46938547c99d921613dc167741.jpg" alt="Chocolate Muffin">
+  <span style= "color:white; font-family: Time New Roman;" >Chocolate Muffin</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Cupcake')">
+    <img src="https://media.eggs.ca/assets/RecipeThumbs/EFC-Classic-Vanilla-Cupcakes-1280x720.jpg" alt="Cupcake">
+  <span style= "color:white; font-family: Time New Roman;" >Cupcake</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Danish Pastry')">
+    <img src="https://www.cuisinefiend.com/recipeimages/easy%20danish/easy-danish-pastries-4-768.jpg" alt="Danish Pastry">
+  <span style= "color:white; font-family: Time New Roman;" >Danish Pastry</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Donut with Cream Filling')">
+    <img src="https://staticcookist.akamaized.net/wp-content/uploads/sites/22/2021/12/LINK-TRAFFIC-13-1200x675.jpg" alt="Donut with Cream Filling">
+  <span style= "color:white; font-family: Time New Roman;" >Donut with Cream Filling</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Egg Custard')">
+    <img src="https://bakefromscratch.com/wp-content/uploads/2015/01/BSID-044high-768x432.jpg" alt="Egg Custard">
+  <span style= "color:white; font-family: Time New Roman;" >Egg Custard</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Fruit Cake')">
+    <img src="https://www.bakinglikeachef.com/wp-content/uploads/fresh-fruit-cake.jpg" alt="Fruit Cake">
+  <span style= "color:white; font-family: Time New Roman;" >Fruit Cake</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Lemon Cake')">
+    <img src="https://www.marcellinaincucina.com/wp-content/uploads/2023/02/italian-lemon-cake-hero.jpg" alt="Lemon Cake">
+  <span style= "color:white; font-family: Time New Roman;" >Lemon Cake</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Strawberry Cheesecake')">
+    <img src="https://drivemehungry.com/wp-content/uploads/2022/07/strawberry-cheesecake-8.jpg" alt="Strawberry Cheesecake">
+  <span style= "color:white; font-family: Time New Roman;" >Strawberry Cheesecake</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Swiss Roll')">
+    <img src="https://assets.epicurious.com/photos/62cda7af268a310d85053fea/1:1/w_1920,c_limit/SwissRoll_RECIPE_062922_36484.jpg" alt="Swiss Roll">
+  <span style= "color:white; font-family: Time New Roman;" >Swiss Roll</span>
+    </button>
+
+    <button class="image-button" onclick="submitForm('dessert', 'Tiramisu cake')">
+    <img src="https://bakingamoment.com/wp-content/uploads/2023/10/IMG_3431-tiramisu-cake-720x720.jpg" alt="Tiramisu cake">
+  <span style= "color:white; font-family: Time New Roman;" >Tiramisu cake</span>
+    </button>
+
+ <input type="hidden" id="foodType" name="foodType" value="">
+    <input type="hidden" id="foodName" name="foodName" value="">
+</form>
+
+ <script>
+    function submitForm(foodType, foodName) {
+      document.getElementById('foodType').value = foodType;
+      document.getElementById('foodName').value = foodName;
+      document.getElementById('foodForm').submit();
+    }
+  </script>
+
+</div>
+
+</body>
+</html>

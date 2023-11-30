@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>
+    function redirectToNextPage(buttonId) {
+      // Redirect to the next page based on the button clicked
+      switch (buttonId) {
+        case 'malay':
+          window.location.href = 'malay.html';
+          break;
+        case 'chinese':
+          window.location.href = 'chinese.html';
+          break;
+        case 'indian':
+          window.location.href = 'indian.html';
+          break;
+        case 'fastfood':
+          window.location.href = 'fastfood.html';
+          break;
+
+        case 'mamak':
+          window.location.href = 'mamak.html';
+          break;
+
+        case 'dessert':
+          window.location.href= 'dessert.html';
+          break;
+
+        default:
+          // Do nothing if an unknown button is clicked
+          break;
+      }
+    }
+  </script>
+
+  <style>
+  body { background-color:#BC8F8F;
+           background-attachment: fixed;
+           background-size: 100% 100%;}
+           h1 { background-color: #FFFAF0; font-size=250px; text-align: center;}
+           form {font-size:150%; color:white; text-align: center;}
+           p { font-size: 180%; color:white;}
+
+  body{ display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;}
+
+   .button-container { display: flex;
+                       flex-wrap: wrap;
+                       justify-content: center;}
+
+
+   .image-button { background-color: transparent;
+                   border: none;
+                   cursor: pointer;
+                   margin: 8px;
+                   padding: 0;}
+
+   .image-button img { width: 200px;
+                       height: 150px;
+                       border-radius: 5px;}
+
+   .image-button span { display: block;
+                        margin-top: 5px;}
+
+
+/* Optional: Add hover effect */
+   .image-button:hover { opacity: 0.8;}
+  </style>
+</head>
+<body>
+<h1>Capybara Calories Calculator</h1>
+<p>Dear user, please choose the food that you want to calculate!</p>
+
+<div class="button-container">
+  <button class="image-button" data-food-type="malay" onclick="redirectToNextPage('malay')">
+    <img src="https://media.vietravel.com/images/NewsPicture/nasi.jpg" alt="malay">
+  <span style= "color:white; font-family: Time New Roman; font-size:20px;" >Malay Food</span>
+  </button>
+
+  <button class="image-button"  data-food-type="chinese" onclick="redirectToNextPage('chinese')">
+    <img src="https://cdn.tatlerasia.com/tatlerasia/i/2023/06/28092301-23124227-istock-1302272289-cover-1600x944_cover_1600x944.jpg" alt="chinese">
+  <span style= "color:white; font-family: Time New Roman; font-size:20px;">Chinese Food</span>
+  </button>
+
+  <button class="image-button" data-food-type="indian"  onclick="redirectToNextPage('indian')">
+    <img src="https://images.lifestyleasia.com/wp-content/uploads/sites/5/2022/11/16150212/GettyImages-1194151482res-1350x900.jpg?tr=w-1600" alt="indian">
+  <span style= "color:white; font-family: Time New Roman; font-size:20px;">Indian Food</span>
+  </button>
+
+  <button class="image-button"  data-food-type="fast food" onclick="redirectToNextPage('fastfood')">
+    <img src="https://cdn.downtoearth.org.in/library/large/2019-03-05/0.89399200_1551782137_fast1.jpg" alt="fastfood">
+  <span style= "color:white; font-family: Time New Roman; font-size:20px;">Fast Food</span>
+  </button>
+
+<button class="image-button"  data-food-type="mamak" onclick="redirectToNextPage('mamak')">
+    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh-gFFVVoCsY4SND5mWI4GYfJ1bG-vpmsO0vdFUKsRFbcZGhqGarBpO1lC0vaLYg8K33iN5MOPj5NdYDdQW_FNYftsdgGXvHmCtZI_yHGtB8iwhOeXQuovYWbRpGzFJkau5T8gkldZmBw4i/s1600/02.jpg" alt="mamak">
+  <span style= "color:white; font-family: Time New Roman; font-size:20px; ">Kedai Mamak</span>
+  </button>
+
+<button class="image-button" data-food-type="dessert" onclick="redirectToNextPage('dessert')">
+    <img src="https://media.hswstatic.com/eyJidWNrZXQiOiJjb250ZW50Lmhzd3N0YXRpYy5jb20iLCJrZXkiOiJnaWZcL2Rlc3NlcnRzLXVwZGF0ZS5qcGciLCJlZGl0cyI6eyJyZXNpemUiOnsid2lkdGgiOjgyOH0sInRvRm9ybWF0IjoiYXZpZiJ9fQ==" alt="dessert">
+    <span style="color:white; font-family: Time New Roman; font-size:20px;">Dessert</span>
+</button>
+</div>

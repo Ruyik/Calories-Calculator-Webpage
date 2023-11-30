@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+  function buttonClicked(buttonId) {
+  // Perform frontend logic if needed
+  // ...
+
+  // Make a request to the backend with the buttonId
+  fetch('/matchFood', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+     body: JSON.stringify({ foodType: 'indian', foodName: buttonId }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Handle the backend response if needed
+    // ...
+
+    // Redirect to the next page or perform other actions based on the response
+  })
+     window.location.href = 'indian.html';  // Redirect to malay.html for now
+    })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
+  </script>
+  <style>
+  body { background-color:CadetBlue;
+           background-attachment: fixed;
+           background-size: 100% 100%;}
+           form {font-size:150%; color:white; text-align: center;}
+           h2 { font-family: Time New Roman; font-size: 300%; color:Peru; text-align: center;}
+           p { font-size: 100%; color:white;}
+
+  body{ display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;}
+
+   .image-button { background-color: transparent;
+                   border: none;
+                   cursor: pointer;
+                   margin: 8px;
+                   padding: 0;}
+
+   .image-button img { width: 180px;
+                       height: 100px;
+                       border-radius: 5px;}
+
+   .image-button span { display: block;
+                        margin-top: 5px;}
+
+   .button-container { display: flex;
+                       flex-wrap: wrap;
+                       justify-content: center;}
+
+
+/* Optional: Add hover effect */
+   .image-button:hover { opacity: 0.8;}
+  </style>
+</head>
+<body>
+<h2>Capybara Calories Calculator</h2>
+<p>Dear user, please choose the food that you want to calculate!</p>
+
+<div class="button-container">
+<form id="foodForm" action="/matchFood" method="post">
+  <button class="image-button" onclick="submitForm('indian', 'chickencurry')">
+    <img src="https://www.allrecipes.com/thmb/oOBAIeEgid4TjgNHPwWYaOJ1xpI=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/212721Indian-chicken-curry-cielomoreno127-7827047-4x3-a9aadb4e04c84a9c9a222c1e128cb0f3.jpg" alt="chickencurry">
+  <span style= "color:white; font-family: Time New Roman;" >Chicken Curry</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('indian', 'biryani')">
+    <img src="https://www.thespruceeats.com/thmb/oIaxLSj0xxAbD39jykKk3XsFo9s=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/SES-chicken-biryani-recipe-7367850-hero-A-ed211926bb0e4ca1be510695c15ce111.jpg" alt="biryani">
+  <span style= "color:white; font-family: Time New Roman;">Biryani</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('indian','paneertikka')">
+    <img src="https://www.cookwithmanali.com/wp-content/uploads/2015/07/Restaurant-Style-Recipe-Paneer-Tikka.jpg" alt="paneertikka">
+  <span style= "color:white; font-family: Time New Roman;">Paneer Tikka</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('indian','dalmakhani')">
+    <img src="https://myfoodstory.com/wp-content/uploads/2018/08/Dal-Makhani-New-1.jpg" alt="dalmakhani">
+  <span style= "color:white; font-family: Time New Roman;">Dal Makhani</span>
+  </button>
+
+   <button class="image-button" onclick="submitForm('indian','samosa')">
+    <img src="https://c.ndtvimg.com/2023-03/0m65kep_samosa_625x300_10_March_23.jpg" alt="samosa">
+    <span style= "color:white; font-family: Time New Roman;">Samosa</span>
+   </button>
+
+  <button class="image-button" onclick="submitForm('indian', 'dosa')">
+    <img src="https://www.daringgourmet.com/wp-content/uploads/2023/06/Dosa-Recipe-4.jpg" alt="dosa">
+    <span style= "color:white; font-family: Time New Roman;">Dosa</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('indian','aloogobi')">
+    <img src="https://veganhuggs.com/wp-content/uploads/2021/04/aloo-gobi-overhead-view.jpg" alt="aloogobi">
+  <span style= "color:white; font-family: Time New Roman;">Aloo Gobi</span>
+  </button>
+
+  <input type="hidden" id="foodType" name="foodType" value="">
+    <input type="hidden" id="foodName" name="foodName" value="">
+</form>
+
+ <script>
+    function submitForm(foodType, foodName) {
+      document.getElementById('foodType').value = foodType;
+      document.getElementById('foodName').value = foodName;
+      document.getElementById('foodForm').submit();
+    }
+  </script>
+
+
+</div>
+</body>
+</html>

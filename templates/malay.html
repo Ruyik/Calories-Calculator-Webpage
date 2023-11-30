@@ -1,0 +1,220 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script>
+  function buttonClicked(buttonId) {
+  // Perform frontend logic if needed
+  // ...
+
+  // Make a request to the backend with the buttonId
+  fetch('/matchFood', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+     body: JSON.stringify({ foodType: 'malay', foodName: buttonId }),
+  })
+  .then(response => response.json())
+  .then(data => {
+    // Handle the backend response if needed
+    // ...
+
+    // Redirect to the next page or perform other actions based on the response
+  })
+    window.location.href = 'malay.html';  // Redirect to malay.html for now
+    })
+  .catch(error => {
+    console.error('Error:', error);
+  });
+}
+  </script>
+  <style>
+  body { background-color:CadetBlue;
+           background-attachment: fixed;
+           background-size: 100% 100%;}
+           form {font-size:150%; color:white; text-align: center;}
+           h2 { font-family: Time New Roman; font-size: 300%; color:Peru; text-align: center;}
+           p { font-size: 100%; color:white;}
+
+  body{ display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;}
+
+   .button-container { display: flex;
+                       flex-wrap: wrap;
+                       justify-content: center;}
+
+   .image-button { background-color: transparent;
+                   border: none;
+                   cursor: pointer;
+                   margin: 8px;
+                   padding: 0;}
+
+   .image-button img { width: 180px;
+                       height: 100px;
+                       border-radius: 5px;}
+
+   .image-button span { display: block;
+                        margin-top: 5px;}
+
+/* Optional: Add hover effect */
+   .image-button:hover { opacity: 0.8;}
+  </style>
+</head>
+<body>
+<h2>Capybara Calories Calculator</h2>
+<p>Dear user, please choose the food that you want to calculate!</p>
+
+<div class="button-container">
+<form id="foodForm" action="/matchFood" method="post">
+    <button class="image-button" onclick="submitForm('malay', 'Nasi Lemak')">
+    <img src="https://www.seriouseats.com/thmb/oBpvfjweNw7hHn5meqo6gpFF6Z0=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/20230309-NasiLemak-MichelleYip-Option1-8d0b9468c998495f91ef4ff6d3b5ab6b.jpg" alt="nasi lemak">
+  <span style= "color:white; font-family: Time New Roman;" >Nasi Lemak</span>
+    </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Satay')">
+    <img src="https://www.unileverfoodsolutions.com.my/dam/global-ufs/mcos/SEA/calcmenu/recipes/MY-recipes/chicken-&-other-poultry-dishes/satay-ayam/main-header.jpg/jcr:content/renditions/cq5dam.thumbnail.desktop.jpeg" alt="satay">
+  <span style= "color:white; font-family: Time New Roman;">Satay</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Rendang')">
+    <img src="https://www.seriouseats.com/thmb/AyH9RDwhO5nzQikx8flk6ZOHcaY=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/__opt__aboutcom__coeus__resources__content_migration__serious_eats__seriouseats.com__recipes__images__2011__08__20110801-rendang-primary-c05d46feafd04103a40f572ce7fad0d8.jpg" alt="rendang">
+  <span style= "color:white; font-family: Time New Roman;">Rendang</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Otak-otak')">
+    <img src="https://asianinspirations.com.au/wp-content/uploads/2018/07/R00387_Otak-otak-768x576.jpg" alt="otak-otak">
+  <span style= "color:white; font-family: Time New Roman;">Otak-otak</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Mee goreng')">
+    <img src="https://resepichenom.com/media/mee_goreng.jpg" alt="meegoreng">
+    <span style= "color:white; font-family: Time New Roman;">Mee goreng</span>
+  </button>
+
+ <button class="image-button" onclick="submitForm('malay', 'Lontong')">
+    <img src="https://d1e3z2jco40k3v.cloudfront.net/-/media/mccormicksea/recipes/desktop/lontong-2000x1125.jpg?rev=3224e701e2384250bfb60108ee55f14b&vd=20230404T123131Z&extension=webp&hash=79D03C2FA06AD67879AFA096EA77F2D4" alt="lontong">
+    <span style= "color:white; font-family: Time New Roman;">Lontong</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Dodol')">
+    <img src="https://cdn.motherhood.com.my/wp-content/uploads/2021/07/15220726/easy-pressure-cooker-dodol-recipe-1024x768.jpg" alt="dodol">
+    <span style= "color:white; font-family: Time New Roman;">Dodol</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Cucur Badak')">
+    <img src="https://utusantv.com/wp-content/uploads/2021/08/cucur-badak.png" alt="cucurbadak">
+    <span style= "color:white; font-family: Time New Roman;">Cucur Badak</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Pisang Goreng')">
+    <img src="https://asianinspirations.com.au/wp-content/uploads/2019/11/R1018-PisangGoreng-new-768x512.jpg" alt="pisanggoreng">
+    <span style= "color:white; font-family: Time New Roman;">Pisang Goreng</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Kuih Lapis')">
+    <img src="https://resepichenom.com/media/Kuih_Lapis_1_x_1.jpg" alt="kuihlapis">
+    <span style= "color:white; font-family: Time New Roman;">Kuih Lapis</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Kuih Koci Pulut Hitam')">
+    <img src="https://2.bp.blogspot.com/-9W0vFQw_EhY/UC0D0hyktoI/AAAAAAAAK4c/QWGaqyGRkv0/s1600/IMG_8399-a.JPG" alt="kuihkocipuluthitam">
+    <span style= "color:white; font-family: Time New Roman;">Kuih Koci Pulut Hitam</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Cekodok Pisang')">
+    <img src="https://resepichenom.com/media/bc17310bbbd01b067f4d1a7cb654ace45c4127a1.jpeg" alt="cekodokpisang">
+    <span style= "color:white; font-family: Time New Roman;">Cekodok Pisang</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Veggie Samosa')">
+    <img src="https://dwellbymichelle.com/wp-content/uploads/2021/03/DWELL-Samosa-Recipe.jpeg" alt="veggiesamosa">
+    <span style= "color:white; font-family: Time New Roman;">Veggie Samosa</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Donut')">
+    <img src="https://cdn.britannica.com/38/230838-050-D0173E79/doughnuts-donuts.jpg" alt="donut">
+    <span style= "color:white; font-family: Time New Roman;">Donut</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Yau char kway')">
+    <img src="https://www.dopenkitchen.com.sg/wp-content/uploads/2020/06/singapore-youtiao-300x300.jpg" alt="yaucharkway">
+    <span style= "color:white; font-family: Time New Roman;">Yau Char Kway</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Muruku')">
+    <img src="https://images.says.com/uploads/story_source/source_image/832369/855c.jpg?_ga=2.79633938.727833485.1701052977-1141632176.1701052976" alt="muruku">
+    <span style= "color:white; font-family: Time New Roman;">Muruku</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Bubur Kacang Hijau')">
+    <img src="https://resepichenom.com/media/3f3841a698cfa57557898fb312586ba8bafc6a4a.jpeg" alt="buburkacanghijau">
+    <span style= "color:white; font-family: Time New Roman;">Bubur Kacang Hijau</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Roti Jala')">
+    <img src="https://resepichenom.com/media/d2f6680e41ffdff637fc21f46430061e58fcaa98.jpeg" alt="rotijala">
+    <span style= "color:white; font-family: Time New Roman;">Roti Jala</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Karipap')">
+    <img src="https://img.kurio.network/dJwF1VXektihxPvsN-GN-ipefFY=/440x440/filters:quality(80)/https://kurio-img.kurioapps.com/21/12/22/24fe7808-e126-457e-9f95-0979197e1774.jpe" alt="karipap">
+    <span style= "color:white; font-family: Time New Roman;">Karipap</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Cucur Udang')">
+    <img src="https://www.ajinomoto.com.my/sites/default/files/content/recipe/image/2021-11/CucurUdang.jpg" alt="cucurudang">
+    <span style= "color:white; font-family: Time New Roman;">Cucur Udang</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Putu Piring')">
+    <img src="https://2.bp.blogspot.com/-MwyiDPeQhQU/VG3lKmgm16I/AAAAAAAAOow/r-CfZI9flFM/s1600/putu%2Bpiring.jpg" alt="putupiring">
+    <span style= "color:white; font-family: Time New Roman;">Putu Piring</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Kuih Seri Muka')">
+    <img src="https://www.makanan.club/my/wp-content/uploads/2019/02/serimuka.jpg" alt="kuihserimuka">
+    <span style= "color:white; font-family: Time New Roman;">Kuih Seri Muka</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Pau Kaya')">
+    <img src="https://www.klikzen.com/img/items/3010.jpg" alt="paukaya">
+    <span style= "color:white; font-family: Time New Roman;">Pau Kaya</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Apom Balik')">
+    <img src="https://abmauri.com.my/wp-content/uploads/2021/10/ab_mauri_apam_balik_cookies_recipe.jpg" alt="apombalik">
+    <span style= "color:white; font-family: Time New Roman;">Apom Balik</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Laddu')">
+    <img src="https://www.tasteatlas.com/Images/Dishes/6610f979d023438f94688e9e9ae951bb.jpg?mw=1300" alt="laddu">
+    <span style= "color:white; font-family: Time New Roman;">Laddu</span>
+  </button>
+
+  <button class="image-button" onclick="submitForm('malay', 'Rojak')">
+    <img src="https://i0.wp.com/davinadavegan.com/wp-content/uploads/2018/03/IMG_2092.jpg?w=2048&ssl=1" alt="rojak">
+    <span style= "color:white; font-family: Time New Roman;">Rojak</span>
+  </button>
+
+  <input type="hidden" id="foodType" name="foodType" value="">
+    <input type="hidden" id="foodName" name="foodName" value="">
+</form>
+
+ <script>
+    function submitForm(foodType, foodName) {
+      document.getElementById('foodType').value = foodType;
+      document.getElementById('foodName').value = foodName;
+      document.getElementById('foodForm').submit();
+    }
+  </script>
+
+</div>
+
+</body>
+</html>

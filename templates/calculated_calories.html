@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculated Calories</title>
+    <style>
+
+    body { background-image: url('https://www.xero.com/content/dam/xero/pilot-images/guides/guide-to-gst-bas-vat/354050_Thumb_Guide%20to%20GST-BAS-VAT_calculatingx2.1646877578663.png');
+      background-attachment: fixed;
+      background-size: 100% 100%;}
+
+      h1 { text-align:center; font-size:50px; color:black;}
+      p { text-align: center; font-size: 28px; color:black;}
+      form { text-align: center; font-size: 20px;}
+
+
+   </style>
+</head>
+<body>
+    <h1>Your Maximum Calories Consumed</h1>
+    <p>The calculated maximum calories:{{ calories }}</p>
+
+
+<form action="/next" method="post">
+        <input type="submit" name="action" value="next">
+
+</form>
+</body>
+</html>
