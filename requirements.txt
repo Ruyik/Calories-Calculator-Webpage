@@ -3,3 +3,4 @@ Flask==3.0.0
 pandas
 itsdangerous==2.1.2
 flask_sqlalchemy
+openpyxl
