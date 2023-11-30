@@ -4,3 +4,4 @@ pandas
 itsdangerous==2.1.2
 flask_sqlalchemy
 openpyxl
+gunicorn==20.1.0 
