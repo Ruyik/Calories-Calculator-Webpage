@@ -1,0 +1,8 @@
+[build]
+  publish = "C:\Users\User\PycharmProjects\capybara"  # Replace with the path to your build directory
+  command = "python app.py"  # Replace with the command to build your project
+
+[[redirects]]
+  from = "/*"
+  to = "/main.html"
+  status = 200
