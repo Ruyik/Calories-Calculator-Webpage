@@ -7,8 +7,7 @@ import pandas as pd
 from itsdangerous import URLSafeTimedSerializer, BadSignature,  SignatureExpired
 import os
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://databaserender_user:b50MsFDpIAV9YawXGi5GNVIOMOIPgkn1@dpg-clnq8c3j65ls7389gr8g-a.singapore-postgres.render.com/databaserender'
-#postgres://databaserender_user:b50MsFDpIAV9YawXGi5GNVIOMOIPgkn1@dpg-clnq8c3j65ls7389gr8g-a.singapore-postgres.render.com/databaserender
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SECRET_KEY'] = 'the random string NRY'
 app.config['MAIL_SERVER'] = 'smtp.googlemail.com'
@@ -39,7 +38,7 @@ def generate_reset_token(user):
     serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'])
     reset_token = serializer.dumps({'user_id': user.id}, salt='reset-password')
 
-    # For debugging purposes, print the generated reset token
+
     print("Generated Reset Token:", reset_token)
 
     return reset_token
@@ -48,10 +47,10 @@ def generate_reset_token(user):
 def validate_reset_token(token):
     serializer = URLSafeTimedSerializer(app.config['SECRET_KEY'])
     try:
-        # Extract the user_id from the token
+
         user_id = serializer.loads(token, salt='reset-password', max_age=3600)['user_id']
 
-        # Query the user by user_id directly
+
         user = User.query.get(user_id)
 
         return user
@@ -101,15 +100,15 @@ def before_first_request():
 
 
 def import_data(excel_file):
-    # Read data from the Excel file with 'openpyxl' engine
+
     df = pd.read_excel(excel_file, engine='openpyxl')
 
-    # Iterate through the data and insert it into the database
+
     for index, row in df.iterrows():
         food = row['food']
         calories = row['calories']
 
-        # Check if the food entry already exists in the database
+
         existing_food = FoodInformation.query.filter_by(food=food).first()
 
         if existing_food is None:
@@ -122,7 +121,7 @@ def import_data(excel_file):
 
 
 with app.app_context():
-    # Call the import_data method here
+
     import_data('FoodCalories.xlsx')
 
 
@@ -149,14 +148,14 @@ def register():
 
     existing_user = User.query.filter_by(email=email).first()
     if existing_user:
-        # Handle the case where the email already exists
+
         return render_template('error.html',
                                message='Email already registered. Please log in or choose a different email.')
     else:
         new_user = User(username=username, email=email, password=hashed_password)
         db.session.add(new_user)
         db.session.commit()
-    # Proceed with user registration
+
     return render_template('input_calories.html', username=username)
 
 
@@ -170,7 +169,7 @@ def login():
         session['user_id'] = user.id
         session['username'] = user.username
 
-        # Set success message
+
         success_message = 'Login successful. Welcome back, {}!'.format(username)
         flash(success_message, 'success')
 
@@ -189,7 +188,7 @@ def forgot_password():
             user = User.query.filter_by(email=email).first()
 
             if user:
-                # Generate a unique token for the password reset link
+
                 reset_token = generate_reset_token(user)
 
                 reset_token = generate_reset_token(user)
@@ -209,7 +208,7 @@ def forgot_password():
 
 @app.route('/reset_password/<token>', methods=['GET', 'POST'])
 def reset_password(token):
-    # Initialize error and success variables
+
     error_message = None
     success_message = None
 
@@ -220,11 +219,11 @@ def reset_password(token):
         if new_password != confirm_password:
             error_message = 'Passwords do not match.'
         else:
-            # Validate the token and get the associated user
+
             user = validate_reset_token(token)
 
             if user:
-                # Update the user's password in the database
+
                 user.password = generate_password_hash(new_password, method='pbkdf2:sha256')
                 db.session.commit()
 
@@ -233,7 +232,7 @@ def reset_password(token):
             else:
                 error_message = 'Invalid reset token.'
 
-    # This line should be outside the else block
+
     return render_template('reset_password.html', token=token, error=error_message, success=success_message)
 
 
@@ -293,16 +292,16 @@ def match_food():
     food_type = request.form.get('foodType')
     food_name = request.form.get('foodName')
 
-    # Query the database for the selected food's information
+
     selected_food = FoodInformation.query.filter_by(food=food_name).first()
 
     if selected_food:
         calories = float(session.get('calories', 0))
 
-        # Subtract the food's calories from the stored calories
+
         calories -= selected_food.calories
 
-        # Update the stored calories in the session
+
         session['calories'] = calories
 
         if calories < 0:
@@ -316,7 +315,7 @@ def match_food():
 
         return render_template('food_details.html', food_calories=selected_food.calories, current_calories=calories)
     else:
-        # Handle the case where the selected food is not found in the database
+
         return render_template('error.html', message='Food not found in the database')
 
 
